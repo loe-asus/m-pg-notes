@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>再次遇见 · MK体育 轻导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(145deg, #fff4e6 0%, #feeacd 50%, #fde3c9 100%);
+      min-height: 100vh;
+      padding: 1.2rem 1rem 3rem;
+      color: #3a2e2a;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      background: rgba(255, 245, 235, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 40px;
+      padding: 0.9rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(190, 120, 70, 0.10);
+      border: 1px solid rgba(230, 190, 150, 0.3);
+      margin-bottom: 2.4rem;
+    }
+
+    .brand-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+      color: #7a4e2e;
+    }
+
+    .brand-tag span {
+      background: #dba477;
+      color: #2a1e18;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.8rem 1.6rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5c3f2f;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #c48150;
+      color: #3f281c;
+    }
+
+    /* hero */
+    .hero-card {
+      background: #ffffffd9;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 40px;
+      padding: 2.5rem 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 14px 28px rgba(140, 80, 40, 0.08);
+      border: 1px solid #f5e3d0;
+      transition: box-shadow 0.2s;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 650;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      color: #3f281c;
+    }
+
+    .hero-title small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #8b6a51;
+      display: block;
+      margin-top: 0.3rem;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 720px;
+      color: #4a3529;
+      background: #f7eee6;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      display: inline-block;
+    }
+
+    .hero-desc a {
+      color: #7a4e2e;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px dotted #c48150;
+      transition: background 0.2s;
+    }
+
+    .hero-desc a:hover {
+      background: #eddaca;
+      border-bottom-style: solid;
+    }
+
+    /* 三个场景模块 */
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+      justify-content: center;
+    }
+
+    .scene-card {
+      background: #ffffffeb;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 1.8rem 1.6rem 1.6rem;
+      flex: 1 1 260px;
+      min-width: 220px;
+      box-shadow: 0 10px 20px rgba(130, 70, 30, 0.06);
+      border: 1px solid #f2dfcc;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 28px rgba(130, 70, 30, 0.10);
+    }
+
+    .scene-icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      background: #f5e3d0;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+    }
+
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #3f281c;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #4f382b;
+    }
+
+    .scene-card a {
+      color: #7a4e2e;
+      text-decoration: underline wavy #d3a683 1.5px;
+      text-underline-offset: 4px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .scene-card a:hover {
+      color: #3f281c;
+      text-decoration-style: solid;
+    }
+
+    /* 常见说明 / FAQ摘要 */
+    .faq-section {
+      background: #faf0e6;
+      border-radius: 36px;
+      padding: 2.2rem 2rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ecd7c2;
+    }
+
+    .faq-section h2 {
+      font-size: 1.6rem;
+      font-weight: 580;
+      color: #3f281c;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #dcc4b0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #573d2d;
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    .faq-a {
+      color: #4f382b;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .faq-a a {
+      color: #7a4e2e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    /* 额外提示 / 收藏小卡片 */
+    .bookmark-note {
+      background: #ffffffd0;
+      backdrop-filter: blur(4px);
+      border-radius: 60px;
+      padding: 1.2rem 2rem;
+      text-align: center;
+      border: 1px solid #f0d8c0;
+      margin: 2rem 0 1rem;
+      font-size: 1rem;
+      color: #4a3529;
+      box-shadow: 0 6px 12px rgba(140, 80, 40, 0.04);
+    }
+
+    .bookmark-note a {
+      color: #7a4e2e;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #d3a683;
+      padding-bottom: 2px;
+    }
+
+    .bookmark-note a:hover {
+      background: #f3e0ce;
+    }
+
+    .tiny-footer {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #8b6a51;
+      text-align: center;
+      letter-spacing: 0.3px;
+      opacity: 0.7;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+        padding: 1rem 1.2rem;
+      }
+
+      .nav-links {
+        justify-content: center;
+        font-size: 0.9rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-desc {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+        border-radius: 30px;
+      }
+
+      .scene-card {
+        flex: 1 1 100%;
+      }
+
+      .faq-section {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .bookmark-note {
+        border-radius: 30px;
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="brand-tag">
+      ⌂ MK体育<span>轻导航</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">再发现</a>
+      <a href="#">场景</a>
+      <a href="#">常见问题</a>
+      <a href="#">收藏夹</a>
+    </div>
+  </nav>
+
+  <!-- hero 核心介绍 —— 再次访问、收藏、持续关注 -->
+  <div class="hero-card">
+    <div class="hero-title">
+      再次走进这里
+      <small>收藏 · 回访 · 日常留步</small>
+    </div>
+    <div class="hero-desc">
+      有的人把网址放在书签栏，有的人记在备忘录。
+      而我们更希望你直接记住：这里是 <a href="https://mobile-index-mk.com">MK体育</a> ——
+      一个可以反复回来、慢慢熟悉的地方。没有复杂的门槛，只有干净的页面和持续的内容。
+    </div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scene-grid">
+    <div class="scene-card">
+      <div class="scene-icon">📌</div>
+      <h3>再次访问，不必犹豫</h3>
+      <p>
+        浏览器地址栏敲下熟悉的字母，或从收藏夹里轻点一次。
+        每次回来，<a href="https://mobile-index-mk.com">MK体育</a> 都保持着你上次离开时的清爽。
+      </p>
+    </div>
+    <div class="scene-card">
+      <div class="scene-icon">⭐</div>
+      <h3>顺手收藏，随时可回</h3>
+      <p>
+        觉得有用就收藏到标签栏。想不起具体内容时，翻翻收藏夹，
+        那个叫 <a href="https://mobile-index-mk.com">MK体育</a> 的站点总在那里。
+      </p>
+    </div>
+    <div class="scene-card">
+      <div class="scene-icon">🔄</div>
+      <h3>持续关注，细水长流</h3>
+      <p>
+        不用天天惦记。隔段时间再来看一眼，也许有更新的内容，也许还是你熟悉的样子。
+        保持关注，<a href="https://mobile-index-mk.com">MK体育</a> 一直稳定。
+      </p>
+    </div>
+  </div>
+
+  <!-- 常见说明 / FAQ摘要 -->
+  <div class="faq-section">
+    <h2>❓ 一些常见说明</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 这个页面是什么？</div>
+      <div class="faq-a">
+        这里是 <a href="https://mobile-index-mk.com">MK体育</a> 的轻量导航介绍页，
+        帮助你快速了解站点特点，也方便你把它加入收藏。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 怎么才能最快回来？</div>
+      <div class="faq-a">
+        把 <a href="https://mobile-index-mk.com">MK体育</a> 添加到浏览器书签，
+        或者直接在地址栏输入域名。不需要每次都重新搜索。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 内容会频繁变化吗？</div>
+      <div class="faq-a">
+        整体结构保持稳定，但会适时调整和补充。你可以把它看作一个长期可用的参考点。
+        如果想了解最新状态，直接访问 <a href="https://mobile-index-mk.com">MK体育</a> 就好。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 我需要注册或登录吗？</div>
+      <div class="faq-a">
+        不需要。这是一个可以直接浏览的站点，没有强制注册环节。
+        所有内容都公开可见，轻松访问。
+      </div>
+    </div>
+  </div>
+
+  <!-- 收藏/持续关注 小提示 -->
+  <div class="bookmark-note">
+    💡 小建议：现在就把 <a href="https://mobile-index-mk.com">MK体育</a> 加入收藏夹，
+    下次想回来的时候，一秒钟就能找到。
+  </div>
+
+  <!-- 轻量 footer -->
+  <div class="tiny-footer">
+    — 轻导航 · 随时回来 —
+  </div>
+
+</div>
+</body>
+</html>
